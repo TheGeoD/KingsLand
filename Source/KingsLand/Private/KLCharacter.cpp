@@ -8,6 +8,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "KLWeapon.h"
+#include "KingsLand/KingsLand.h"
 #include "KLBow.h"
 
 // Sets default values
@@ -15,6 +16,8 @@ AKLCharacter::AKLCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	GetCapsuleComponent()->SetCollisionResponseToChannel(COLLISION_PROJECTILE, ECR_Ignore);
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>("CameraBoom"); 
 	CameraBoom->SetupAttachment(GetCapsuleComponent()); 
@@ -68,7 +71,6 @@ void AKLCharacter::BeginPlay()
 void AKLCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input

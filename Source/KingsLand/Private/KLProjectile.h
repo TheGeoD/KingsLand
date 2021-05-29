@@ -15,7 +15,7 @@ class AKLProjectile : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
+public:	 
 	// Sets default values for this actor's properties
 	AKLProjectile();
 

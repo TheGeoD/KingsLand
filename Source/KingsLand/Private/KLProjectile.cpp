@@ -5,6 +5,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SphereComponent.h"
+#include "KingsLand/KingsLand.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -13,7 +14,7 @@ AKLProjectile::AKLProjectile()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision"); 
 	RootComponent = CollisionSphere; 
-	CollisionSphere->SetCollisionResponseToAllChannels(ECR_Block);
+	CollisionSphere->SetCollisionProfileName("Projectile", true);
 	CollisionSphere->OnComponentHit.AddDynamic(this, &AKLProjectile::OnHit);
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("MeshComp"); 
