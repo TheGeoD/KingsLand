@@ -14,7 +14,7 @@ AKLProjectile::AKLProjectile()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision"); 
 	RootComponent = CollisionSphere; 
-	CollisionSphere->SetCollisionProfileName("Projectile", true);
+	CollisionSphere->SetCollisionProfileName("Arrow"); 
 	CollisionSphere->OnComponentHit.AddDynamic(this, &AKLProjectile::OnHit);
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("MeshComp"); 

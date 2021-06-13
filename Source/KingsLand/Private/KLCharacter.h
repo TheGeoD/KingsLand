@@ -10,6 +10,8 @@ class UCameraComponent;
 class USpringArmComponent; 
 class USkeletalMeshComponent; 
 class AKLWeapon; 
+class IKLInteractables;
+class UKLInteractingTraceComponent;
 
 UCLASS(BlueprintType)
 class AKLCharacter : public ACharacter
@@ -65,6 +67,9 @@ protected:
 	UFUNCTION()
 	void ReleaseBow();
 
+	UFUNCTION()
+	void Interact(); 
+
 	UPROPERTY(EditDefaultsOnly)
 	float RotationSpeed; 
 
@@ -87,6 +92,17 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly)
 	FName BoomAttachSocket; 
+
+	UPROPERTY(EditDefaultsOnly)
+	float HorizontalAimOffset; 
+
+	UPROPERTY(EditDefaultsOnly)
+	float VerticalAimOffset; 
+
+	IKLInteractables* FocusedItem; 
+
+	UPROPERTY()
+	UKLInteractingTraceComponent* TraceComp; 
 
 public:	
 
